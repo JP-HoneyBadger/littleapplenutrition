@@ -56,6 +56,14 @@ const config = {
         sm: 'calc(var(--radius) - 4px)',
       },
       colors: {
+
+        kstateLightPurple: '#512888',
+        kstateWhite: '#ffffff',
+        kstateDarkPurple: '#330a57',
+        kstateDarkGray: '#a7a9ac',
+        kstateLightGray: '#e2e3e4',
+
+
         accent: {
           DEFAULT: 'hsl(var(--accent))',
           foreground: 'hsl(var(--accent-foreground))',
