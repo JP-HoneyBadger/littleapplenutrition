@@ -26,6 +26,7 @@ import {
   PreviewField,
 } from '@payloadcms/plugin-seo/fields'
 import { slugField } from '@/fields/slug'
+import { Media } from '../Media'
 
 export const Products: CollectionConfig<'products'> = {
   slug: 'products',
@@ -103,7 +104,7 @@ export const Products: CollectionConfig<'products'> = {
               required: true,
             },
           ],
-          label: 'Content',
+          label: 'Product Info',
         },
         {
           fields: [
@@ -133,11 +134,11 @@ export const Products: CollectionConfig<'products'> = {
               relationTo: 'categories',
             },
           ],
-          label: 'Meta',
+          label: 'Relations',
         },
         {
           name: 'meta',
-          label: 'SEO',
+          label: 'Card/SEO',
           fields: [
             OverviewField({
               titlePath: 'meta.title',

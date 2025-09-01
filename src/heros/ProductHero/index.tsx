@@ -11,6 +11,10 @@ export const ProductHero: React.FC<{
 }> = ({ product }) => {
   const { categories, heroImage, populatedAuthors, publishedAt, title } = product
 
+  // Only render if the upload is actually populated (not a string ID)
+  const hero = typeof heroImage === 'object' && heroImage !== null ? heroImage : null
+  if (!hero) return null
+
   const hasAuthors =
     populatedAuthors && populatedAuthors.length > 0 && formatAuthors(populatedAuthors) !== ''
 

@@ -50,27 +50,35 @@ export default async function Product({ params: paramsPromise }: Args) {
   if (!product) return <PayloadRedirects url={url} />
 
   return (
-    <article className="pt-16 pb-16">
+    <article className="pt-16 pb-16 bg-kstateLightPurple flex flex-col items-center justify-center h-full w-full mx-auto">
       <PageClient />
 
       {/* Allows redirects for valid pages too */}
       <PayloadRedirects disableNotFound url={url} />
 
       {draft && <LivePreviewListener />}
-      
-      <ProductHero product={product} />
 
-      <div className="flex flex-col items-center gap-4 pt-8">
-        <div className="container">
+      {/* <ProductHero product={product} /> */}
+
+      <div className="flex h-full w-full flex-col md:flex-row justify-center items-center gap-4 pt-8 gap-x-12 bg-kstateLightGray px-4">
+        <p className="text-4xl text-teal-300">Where is this?</p>
+
+        {/* This is the Product */}
+        <div>
           <RichText className="max-w-[48rem] mx-auto" data={product.content} enableGutter={false} />
-          {product.relatedProducts && product.relatedProducts.length > 0 && (
-            <RelatedProducts
-              className="mt-12 max-w-[52rem] lg:grid lg:grid-cols-subgrid col-start-1 col-span-3 grid-rows-[2fr]"
-              docs={product.relatedProducts.filter((product) => typeof product === 'object')}
-            />
-          )}
         </div>
       </div>
+
+
+
+
+      {/* Related Products */}
+      {product.relatedProducts && product.relatedProducts.length > 0 && (
+        <RelatedProducts
+          className="mt-12 max-w-[52rem] lg:grid lg:grid-cols-subgrid col-start-1 col-span-3 grid-rows-[2fr] px-4"
+          docs={product.relatedProducts.filter((product) => typeof product === 'object')}
+        />
+      )}
     </article>
   )
 }
